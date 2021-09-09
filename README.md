@@ -6,12 +6,18 @@ The websiteFunctions/flaskApp directory contains all the files needed to run the
 The pythonFiles directory contains files used to draw knots
 The shellfindFiles directory contains dummy files used for runshellfind
 
+## Flask Website
+
+### Docker
+
+`#TODO` but we're having success with `docker run --rm -p 5000:5000 --name knot-mosaics --read-only --tmpfs /app/shellfindFiles --tmpfs /tmp knot-mosaics:dev` and the included Dockerfile.
+
 *************************************
 NOTE: The tables of knots that contain knots with crossing number up to 16 are too large for this github repository to store. Here's a link to the full table:
 ___GET LINK___
 *************************************
 
-Below are instructions on running various pieces of the project
+## Pipeline
 
 How to start a new pipeline
 In main directory copy the base_dt_make and basePipe files into new files
@@ -22,11 +28,11 @@ cp basePipe 7-31Pipe
 Edit the top of the new dt_make file to specify layout and minimum crossing number 
 
 vi 7-31_dt_make ~ or open with whatever text editor you prefer
-# choose the layout, written as a string of the form 'mosiacSize-numberTiles'
-# options are defined in layoutDict below
+choose the layout, written as a string of the form 'mosiacSize-numberTiles'
+options are defined in layoutDict below
 layout = '7-31'
 
-#choose the minimum crossing number of knots you're looking for
+choose the minimum crossing number of knots you're looking for
 minCrossings = 9
 
 Choose which knots you want to identify with the identifyKnot file
@@ -34,7 +40,6 @@ Copy the baseIdentifyKnot file and change which table it uses
 cp baseIdentifyKnot identifyKnot7-16
 
 Edit the new identifyKnot file:
-# CHOOSE A TABLE
 table=tables/knotTable0-16
 -- this might involve creating a table that has only the knots you want to search for. The runtime is reduced by leaving out the smaller knots so that it doesn't waste time and memory writing the unknot to the output millions of times. To do this just copy one of the existing knotTables and delete the lines you don't want
 

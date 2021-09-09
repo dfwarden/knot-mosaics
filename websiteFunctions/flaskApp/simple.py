@@ -175,17 +175,17 @@ def results():
     if not mask.any(): 
       ans = 'A mosaic for the ' + knotName + ' knot has not yet been discovered'
       return render_template('webpage1.html', answer=ans, knotNames=list(knownKnots), lastSearch=knotName)
-    vector = df[mask].Vector.get_values()[0]
-    tileNum = df[mask].TileNum.get_values()[0]
+    vector = df[mask].Vector.values[0]
+    tileNum = df[mask].TileNum.values[0]
     # Check if the tile number is realized (then same with mosaic and crossing)
     if tileNum == df[mask].TileNum.min(): 
       minTile = 'min'
     else: minTile = 'known'
-    mosaicNum = df[mask].Mosaic.get_values()[0]
+    mosaicNum = df[mask].Mosaic.values[0]
     if mosaicNum == df[mask].Mosaic.min(): 
       minMosaic = 'min'
     else: minMosaic = 'known'
-    crossings = df[mask].Crossings.get_values()[0]
+    crossings = df[mask].Crossings.values[0]
     if str(crossings) == re.search("^\d+", knotName).group():
       minCrossing = 'min'
     elif crossings > df[mask].Crossings.min():

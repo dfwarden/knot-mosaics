@@ -6,16 +6,14 @@ The websiteFunctions/flaskApp directory contains all the files needed to run the
 The pythonFiles directory contains files used to draw knots
 The shellfindFiles directory contains dummy files used for runshellfind
 
+## Knot Tables
+
+The tables of knots that contain knots with crossing number up to 16 are larger than Github's 100 MiB limit, so they are compressed in this repository.
 ## Flask Website
 
 ### Docker
 
 `#TODO` but we're having success with `docker run --rm -p 5000:5000 --name knot-mosaics --read-only --tmpfs /app/shellfindFiles --tmpfs /tmp knot-mosaics:dev` and the included Dockerfile.
-
-*************************************
-NOTE: The tables of knots that contain knots with crossing number up to 16 are too large for this github repository to store. Here's a link to the full table:
-___GET LINK___
-*************************************
 
 ## Pipeline
 
